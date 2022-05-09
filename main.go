@@ -1,11 +1,9 @@
 package main
 
-import "github.com/Atralupus/nomadcoin/blockchain"
+import (
+	"github.com/Atralupus/nomadcoin/explorer"
+)
 
 func main() {
-	chain := blockchain.GetBlockChain()
-	chain.AddBlock("Second Block")
-	chain.AddBlock("Third Block")
-	chain.AddBlock("Fourth Block")
-	chain.PrintBlocks()
+	explorer.Start(3000)
 }

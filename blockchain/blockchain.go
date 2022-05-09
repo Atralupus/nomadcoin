@@ -7,15 +7,15 @@ import (
 )
 
 type Block struct {
-	data     string
-	hash     string
-	prevHash string
+	Data     string
+	Hash     string
+	PrevHash string
 }
 
 func (b *Block) calcBlockHash() {
-	hash := sha256.Sum256([]byte(b.data + b.prevHash))
+	hash := sha256.Sum256([]byte(b.Data + b.PrevHash))
 	hexHash := fmt.Sprintf("%x", hash)
-	b.hash = hexHash
+	b.Hash = hexHash
 }
 
 type blockChain struct {
@@ -25,7 +25,7 @@ type blockChain struct {
 var b *blockChain
 var once sync.Once
 
-func GetBlockChain() *blockChain {
+func GetBlockchain() *blockChain {
 	if b == nil {
 		once.Do(func() {
 			b = &blockChain{}
@@ -40,7 +40,7 @@ func (b blockChain) getLastBlockHash() string {
 	if b.Size() == 0 {
 		return ""
 	}
-	return b.blocks[b.Size()-1].hash
+	return b.blocks[b.Size()-1].Hash
 }
 
 func (b blockChain) Size() int {
@@ -51,10 +51,8 @@ func (b *blockChain) AddBlock(data string) {
 	b.blocks = append(b.blocks, createBlock(data))
 }
 
-func (b blockChain) PrintBlocks() {
-	for _, block := range b.blocks {
-		fmt.Printf("Data: %s, Hash: %s, PrevHash: %s\n", block.data, block.hash, block.prevHash)
-	}
+func (b *blockChain) AllBlocks() []*Block {
+	return b.blocks
 }
 
 func createBlock(data string) *Block {
