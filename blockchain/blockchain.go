@@ -25,7 +25,7 @@ type blockChain struct {
 var b *blockChain
 var once sync.Once
 
-func Blockchain() *blockChain {
+func GetBlockchain() *blockChain {
 	if b == nil {
 		once.Do(func() {
 			b = &blockChain{}
