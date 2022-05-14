@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Atralupus/nomadcoin/explorer"
+	"github.com/Atralupus/nomadcoin/rest"
 )
 
 func main() {
-	explorer.Start(3000)
+	rest.Start(4000)
 }
