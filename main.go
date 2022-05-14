@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Atralupus/nomadcoin/rest"
+	"github.com/Atralupus/nomadcoin/cli"
 )
 
 func main() {
-	rest.Start(4000)
+	cli.Start()
 }
