@@ -222,3 +222,7 @@ $RECYCLE.BIN/
 
 # Goenv[https://github.com/syndbg/goenv]
 .go-version
+
+### Custom
+
+*.db
