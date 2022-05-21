@@ -6,12 +6,12 @@ http://localhost:4000/blocks
 
 ###
 
-http://localhost:4000/blocks/2
+http://localhost:4000/blocks/9cb5149d3d5b7c75863616c037babcb9f36ab52caead460f5f28b11690901ff2
 
 ### 
 
 POST http://localhost:4000/blocks
 
 {
-    "message": "test"
+    "message": "test3"
 }
